@@ -1,9 +1,11 @@
+from operator import imod
 from airflow import DAG
 from datetime import datetime
 from datetime import timedelta
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 
+from python.spotify_etl import test_call 
 
 default_args = {
     "owner" : "airflow",
@@ -11,8 +13,8 @@ default_args = {
     "retry_delay" : timedelta(minutes= 5)
 }
 
-def test_call():
-    print("Test check!!")
+# def test_call():
+#     print("Test check!!")
 
 
 with DAG(
